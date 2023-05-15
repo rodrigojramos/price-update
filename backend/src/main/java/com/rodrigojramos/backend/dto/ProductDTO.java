@@ -1,26 +1,22 @@
-package com.rodrigojramos.backend.entities;
+package com.rodrigojramos.backend.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.rodrigojramos.backend.entities.Product;
 
-@Entity
-@Table(name = "products")
-public class Products {
-    @Id
+public class ProductDTO {
+
     private Long code;
     private String name;
     private Double costPrice;
     private Double salesPrice;
 
-    public Products() {
+    public ProductDTO() {
     }
 
-    public Products(Long code, String name, Double costPrice, Double salesPrice) {
-        this.code = code;
-        this.name = name;
-        this.costPrice = costPrice;
-        this.salesPrice = salesPrice;
+    public ProductDTO(Product entity) {
+        code = entity.getCode();
+        name = entity.getName();
+        costPrice = entity.getCostPrice();
+        salesPrice = entity.getSalesPrice();
     }
 
     public Long getCode() {
